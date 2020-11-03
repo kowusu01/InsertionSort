@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-
-
 
 namespace InsertionSort
 {
@@ -22,31 +19,61 @@ namespace InsertionSort
                 Console.WriteLine("Inside Main ");
                 // LOG.info("This is info only"); ---- logs when log level is info
 
-
                 int[] originalList = new int[] { 23, 4, 16, 45, 2 };
 
                 // sorted with one iteration
-                int[] expectedAfterOneSortIteration = new int[] { 2, 8, 4, 9, 3, 6 };
+                int[] expectedAfterOneSortIteration = new int[] { 4, 23, 16, 45, 2 };
 
                 // sorted list after two iterations
-                int[] expectedAfterTwoSortIterations = new int[] { 2, 4, 8, 9, 3, 6 };
+                int[] expectedAfterTwoSortIterations = new int[] { 4, 16, 23, 45, 2 };
+
+                // sorted list after three iterations
+                int[] expectedAfterThreeSortIterations = new int[] { 4, 16, 23, 45, 2 };
 
                 // sorted list after full sort
-                int[] expectedList = new int[] { 2, 3, 4, 6, 8, 9 };
+                int[] expectedListFullSort = new int[] {2, 4, 16, 23, 45 };
 
-                Console.WriteLine("After Sort");
+                Console.WriteLine("Calling Sort from Main... ");
 
+                int ITERATIONS_1 = 1;
+                int ITERATIONS_2 = 2;
+                int ITERATIONS_3 = 3;
 
-                Console.WriteLine("Calling Sort from Main.. ");
-                int ITERATIONS_TO_RUN = 2;
-                int[] ActualListSorted = MyInsertionSort.Sort(originalList, ITERATIONS_TO_RUN);
-                Console.WriteLine("Done Sorting. ");
+                MyInsertionSort sort = new MyInsertionSort();
 
-                Console.WriteLine(string.Join(',', ActualListSorted));
-                Console.WriteLine("Sorted list  and expected list are same order: " + originalList.SequenceEqual(expectedAfterOneSortIteration));
+                Console.WriteLine("Sorting with only one iteration");
+                Console.WriteLine("--------------------------------");
+                int[] ActualListSorted_One_Iteration = sort.Sort(originalList, ITERATIONS_1);
+                Console.WriteLine(string.Join(',', ActualListSorted_One_Iteration));
+                Console.WriteLine("Sorted list and expected list are same order: " + ActualListSorted_One_Iteration.SequenceEqual(expectedAfterOneSortIteration));
+                Console.WriteLine("");
+
+                Console.WriteLine("Sorting with only two iterations");                             
+                Console.WriteLine("--------------------------------");
+                int[] ActualListSorted_Two_Iteration = sort.Sort(originalList, ITERATIONS_2);
+                Console.WriteLine("Sorted List: " + string.Join(',', ActualListSorted_Two_Iteration));
+                Console.WriteLine("Sorted list and expected list are same order: " + ActualListSorted_Two_Iteration.SequenceEqual(expectedAfterTwoSortIterations));
+                Console.WriteLine("");
+
+                Console.WriteLine("Sorting with three iterations");
+                Console.WriteLine("--------------------------------");
+                int[] ActualListSorted_Three_Iteration = sort.Sort(originalList, ITERATIONS_3);
+                Console.WriteLine("Sorted List: " + string.Join(',', ActualListSorted_Three_Iteration));
+                Console.WriteLine("Sorted list and expected list are same order: " + ActualListSorted_Three_Iteration.SequenceEqual(expectedAfterThreeSortIterations));
+                Console.WriteLine("");
+
+                Console.WriteLine("Sorting entire list");
+                Console.WriteLine("--------------------------------");
+                int[] ActualListSorted_Full_Sort = sort.Sort(originalList);
+                Console.WriteLine("Sorted List: " + string.Join(',', ActualListSorted_Full_Sort));
+                Console.WriteLine("Sorted list and expected list are same order: " + ActualListSorted_Full_Sort.SequenceEqual(expectedListFullSort));
+                Console.WriteLine("");
+
+                Console.ReadKey();
             }
             catch(Exception e)
             {
+                throw e;
                 // log.Error(e);
             }
             

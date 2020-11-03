@@ -1,11 +1,9 @@
 
 using System;
-using System.Globalization;
-using System.Linq;
 public class MyInsertionSort
 {
 	
-	public static int[] Sort(int[] x, int iterationsToRun)
+	public int[] Sort(int[] x, int iterationsToRun = -1)
 	{
 		Console.WriteLine("Inside Sort method.");
 		if (x == null || x.Length < 1)
@@ -34,14 +32,11 @@ public class MyInsertionSort
 			x[i + 1] = key;
 
 			/// CIRCUIT BREAKER
-			if (j == iterationsToRun) break;
+			if ((iterationsToRun > 0) && (count == iterationsToRun)) break;
             
 			count++;
 		}
-
-
 		Console.WriteLine("Exiting Sort method.");
 		return x;
-
 	}
 }
