@@ -9,8 +9,7 @@ Making Code Visible
   Executing your Console Application from the Commandline (terminal)
   What is a Build Configuration?
   Release and Debug  - Configurations
-
-  
+    
   Program Types:
   .exe (Executable)
   .dll  - dynmaically liked library
