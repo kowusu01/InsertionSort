@@ -1,0 +1,32 @@
+﻿
+Making Code Visible
+----------------------------
+
+  Making your code easy to debug
+  making the code visible (internally)
+  ** determine where in your code requires the most visibility **
+
+  Executing your Console Application from the Commandline (terminal)
+  What is a Build Configuration?
+  Release and Debug  - Configurations
+
+  
+  Program Types:
+  .exe (Executable)
+  .dll  - dynmaically liked library
+
+  Things to research
+  - .Net Build process
+  
+  Logging Frameworks - Learn the concepts on logging and pick one framework to master
+  Some Logging Frameworks: Log4Net, Nlog
+  - Use a Logger - must be configured: tell it how to log, what messages to suppress
+  - e.g. configure your log DEBUG
+  - Logger has levels: DEBUG, INFO,  ERROR, FATAL
+  - log.Debug()  - lowest level 
+  - log.Info()
+  - log.Error()
+  
+  What to add, where to add the log messages
+  Make sure you add the log messages in the most important places in the code
+  use the appropriate log level for each message.
